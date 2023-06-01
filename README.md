@@ -15,29 +15,18 @@ This Todo App API is built using Django Rest Framework. It provides endpoints fo
 ## Technologies Used
 
 - Backend:
-    1. Python 3.8+
+  - 1. Python 3.8+
   - 2. Django 3.1+: Python-based web framework for building robust web applications.
   - 3. Django Rest Framework (DRF) 3.1+: Toolkit for building RESTful APIs.
   - Basic Authentication : Library for implementing Basic authentication in Django.
  
--esting:
+- Testing:
 1. Postman Collection
 
 
 ## Installation and Setup
 
-1. Clone the repository:
-```bash
-git clone https://github.com/as4c/Todo-Api.git
-```
-
-
-2. Change into the project directory:
-```bash
-cd Todo-Api
-````
-
-3. Set up Project:
+1. Set up Project:
 - Create and activate a virtual environment.
 ```bash
 mkvirtualenv env
@@ -50,6 +39,14 @@ env/Scripts/activate
 ```
 source env/bin/activate
 ```
+2. Clone the repository:
+```bash
+git clone https://github.com/as4c/Todo-Api.git
+```
+3. Change into the project directory:
+```bash
+cd Todo-Api
+````
 - Install the required Python dependencies from the `requirements.txt` file:
   ```
   pip install -r requirements.txt

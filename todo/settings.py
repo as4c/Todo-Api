@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-is^b4=5lxn1v6-&9-vp238*(pj98+)vk-_d*(r5gzq80_p62c+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','.now.sh']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
 
 
 # Application definition
@@ -40,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# All the apps create by me
 MYAPPS=[
     'api',
     'users',
 ]
+
+# All the others Apps
 OTHER_APPS=[
     'rest_framework',
     'corsheaders'
@@ -62,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
    
 ]
-#  'django.middleware.csrf.CsrfViewMiddleware',
+
 ROOT_URLCONF = 'todo.urls'
 
 TEMPLATES = [
@@ -81,8 +84,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'todo.wsgi.application'
-# WSGI_APPLICATION = 'vercel_app.wsgi.app'
+# WSGI_APPLICATION = 'todo.wsgi.application'
+WSGI_APPLICATION = 'vercel_app.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

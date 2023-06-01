@@ -29,6 +29,9 @@ class TaskSerializer(serializers.ModelSerializer):
         
         return task
 
+
+    # validating ‘Due Date’ field value cannot be before ‘Timestamp created’
+    #field value
     def validate(self, data):
         due_date = data.get('due_date') 
         if due_date:

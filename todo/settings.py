@@ -84,8 +84,8 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'todo.wsgi.application'
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
+# WSGI_APPLICATION = 'todo.wsgi.application'  # for development purpose
+WSGI_APPLICATION = 'vercel_app.wsgi.app'      # for production puspose
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

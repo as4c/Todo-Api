@@ -15,9 +15,10 @@ from django.urls import path
 from users import views
 from django.views.decorators.csrf import csrf_exempt
 
+
+# homepage to show all the available endpoints 
 def homepage(request):
-    urlpatterns = [
-       
+    urlpatterns = [      
         path('api/create-todo/', TaskCreateAPIView.as_view(), name='create-todo'),
         path('api/todos/', TaskAPIView.as_view(), name='todo-list'),
         path('api/todo/<int:pk>/', TaskDetailAPIView.as_view(), name='todos'),
@@ -36,7 +37,7 @@ def homepage(request):
 
     return JsonResponse(api_endpoints)
 
-
+# All the method to perform CRUD Operation on the App
 class TaskAPIView(APIView):
     authentication_classes = [BasicAuthentication]  # Add BasicAuthentication
     permission_classes = [IsAuthenticated]  # Optional permission class

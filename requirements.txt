@@ -5,4 +5,4 @@ djangorestframework==3.14.0
 pytz==2023.3
 sqlparse==0.4.4
 typing_extensions==4.6.2
-db-sqlite3
+# db-sqlite3

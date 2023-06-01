@@ -1,4 +1,4 @@
-#A Todo App Api
+# Todo App Api
 
 This Todo App API is built using Django Rest Framework. It provides endpoints for managing tasks and tags, as well as user authentication using Basic Authentication.
 

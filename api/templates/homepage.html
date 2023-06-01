@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>API Endpoints</h1>
+    <ul>
+        {% for endpoint in api_endpoints %}
+            <li>{{ endpoint }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -7,6 +7,34 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from rest_framework.authentication import  BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+from django.urls import URLPattern
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.urls import path
+from users import views
+from django.views.decorators.csrf import csrf_exempt
+
+def homepage(request):
+    urlpatterns = [
+       
+        path('api/create-todo/', TaskCreateAPIView.as_view(), name='create-todo'),
+        path('api/todos/', TaskAPIView.as_view(), name='todo-list'),
+        path('api/todo/<int:pk>/', TaskDetailAPIView.as_view(), name='todos'),
+        path('api/create-tag/', TagCreateAPIView.as_view(), name="create-tag"),
+        path("api/tags/", TagAPIView.as_view(), name='tags'),
+        path('api/tags/<int:pk>/', TagDetailAPIView.as_view(), name='detail-tags'),
+        path('users/signup/',csrf_exempt(views.SignupAPIView.as_view()),name='signup'),
+        path('users/login/',csrf_exempt(views.LoginAPIView.as_view()),name='login'),
+        path('users/logout/',csrf_exempt(views.LogoutAPIView.as_view()),name='logout')
+    ]
+
+    api_endpoints = {}
+    for urlpattern in urlpatterns:
+        if isinstance(urlpattern, URLPattern):
+            api_endpoints[urlpattern.name] = str(urlpattern.pattern)
+
+    return JsonResponse(api_endpoints)
 
 
 class TaskAPIView(APIView):

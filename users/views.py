@@ -30,6 +30,9 @@ class SignupAPIView(APIView):
         user.save()
 
         return Response({'message': 'User created successfully'}, status=201)
+    
+
+    
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])

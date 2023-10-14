@@ -160,5 +160,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://api.postman.com",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "http://13.49.32.192:8000"
 
 ]

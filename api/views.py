@@ -14,10 +14,11 @@ from django.http import JsonResponse
 from django.urls import path
 from users import views
 from django.views.decorators.csrf import csrf_exempt
-
+import os
 
 # homepage to show all the available endpoints 
 def homepage(request):
+    env = os.environ.get("ENV", "None")
     urlpatterns = [      
         path('api/create-todo/', TaskCreateAPIView.as_view(), name='create-todo'),
         path('api/todos/', TaskAPIView.as_view(), name='todo-list'),
@@ -25,9 +26,9 @@ def homepage(request):
         path('api/create-tag/', TagCreateAPIView.as_view(), name="create-tag"),
         path("api/tags/", TagAPIView.as_view(), name='tags'),
         path('api/tags/<int:pk>/', TagDetailAPIView.as_view(), name='detail-tags'),
-        path('users/signup/',csrf_exempt(views.SignupAPIView.as_view()),name='signup'),
-        path('users/login/',csrf_exempt(views.LoginAPIView.as_view()),name='login'),
-        path('users/logout/',csrf_exempt(views.LogoutAPIView.as_view()),name='logout')
+        path('users/signup/', csrf_exempt(views.SignupAPIView.as_view()), name='signup'),
+        path('users/login/', csrf_exempt(views.LoginAPIView.as_view()), name='login'),
+        path('users/logout/', csrf_exempt(views.LogoutAPIView.as_view()), name='logout')
     ]
 
     api_endpoints = {}
@@ -35,8 +36,10 @@ def homepage(request):
         if isinstance(urlpattern, URLPattern):
             api_endpoints[urlpattern.name] = str(urlpattern.pattern)
 
-    return JsonResponse(api_endpoints)
-
+    return JsonResponse({
+        "message": "Inside container. Environment: " + env,
+        "data": api_endpoints
+    }, status=200)
 # All the method to perform CRUD Operation on the App
 class TaskAPIView(APIView):
     authentication_classes = [BasicAuthentication]  # Add BasicAuthentication

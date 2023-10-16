@@ -38,7 +38,7 @@ def homepage(request):
 
     return JsonResponse({
         "message": "Hello I'm sagar!. Environment: " + env,
-        "data": api_endpoints
+        # "data": api_endpoints
     }, status=200)
 # All the method to perform CRUD Operation on the App
 class TaskAPIView(APIView):

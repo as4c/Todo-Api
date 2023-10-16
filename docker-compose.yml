@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    volumes:
+      - ./todoapp/:/app/todo/
+    env_file:
+      - .env

@@ -4,6 +4,9 @@ services:
   django:
     build: .
     volumes:
-      - ./todoapp/:/app/todo/
+      - ./todo/:/app/todo/
     env_file:
       - .env
+
+    ports:
+      - 8000:8000

@@ -37,7 +37,7 @@ def homepage(request):
             api_endpoints[urlpattern.name] = str(urlpattern.pattern)
 
     return JsonResponse({
-        "message": "Hiii from inside container. Environment: " + env,
+        "message": "Hello. Environment: " + env,
         # "data": api_endpoints
     }, status=200)
 # All the method to perform CRUD Operation on the App

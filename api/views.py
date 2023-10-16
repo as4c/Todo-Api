@@ -37,8 +37,8 @@ def homepage(request):
             api_endpoints[urlpattern.name] = str(urlpattern.pattern)
 
     return JsonResponse({
-        "message": "Hello from inside container. Environment: " + env,
-        "data": api_endpoints
+        "message": "Hiii from inside container. Environment: " + env,
+        # "data": api_endpoints
     }, status=200)
 # All the method to perform CRUD Operation on the App
 class TaskAPIView(APIView):

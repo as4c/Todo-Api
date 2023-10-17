@@ -163,3 +163,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://13.49.32.192:8000"
 
 ]
+
+
+#Celery configurations
+
+BROKER_URL = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
+CELERY_RESULT_BACKEND = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'

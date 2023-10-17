@@ -1,6 +1,11 @@
 version: '3'
 
 services:
+
+  redis:
+    image: redis:alpine
+    ports:
+     - 6379:6379
   django:
     build: .
     volumes:
@@ -10,3 +15,19 @@ services:
 
     ports:
       - 8000:8000
+
+    depends_on:
+      - redis
+
+  celery:
+    build: .
+
+    command: celery -A todo worker -l info
+    volumes:
+      - ./todo/:/app/todo/
+
+    env_file:
+      - .env
+    
+    depends_on:
+      - redis

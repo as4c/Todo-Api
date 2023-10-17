@@ -15,7 +15,7 @@ from django.urls import path
 from users import views
 from django.views.decorators.csrf import csrf_exempt
 import os
-from .tasks import add
+from .tasks import add, thumbnail_task
 
 
 @api_view(http_method_names=["POST"])
@@ -26,6 +26,15 @@ def add_numbers(request):
     return JsonResponse({
         "message":"Successfully submitted"
     }, status=200)
+
+@api_view(http_method_names=["POST"])
+def create_thumbnail(request):
+    file = request.FILES.get('file')
+    thumbnail_task.delay(file)
+    return JsonResponse({
+        "message":"Processing the Image."
+    }, status=200)
+
 
 
 # homepage to show all the available endpoints 

@@ -26,7 +26,7 @@ from api import views
 
 
 urlpatterns = [
-    path('',views.homepage,name='home'),
+    path('',views.add_numbers,name='home'),
     path('admin/', admin.site.urls),
     path('api/',include('api.urls')),    # urls for my todo api
     path('users/',include('users.urls')), # urls for users accounts

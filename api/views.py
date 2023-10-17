@@ -30,10 +30,10 @@ def add_numbers(request):
 @api_view(http_method_names=["POST"])
 def create_thumbnail(request):
     file = request.FILES.get('file')
-    file_id = str(uuid.uuid4)
+    file_id = str(uuid.uuid4())
     image = Image.open(file)
     image.save("todo/Images/" + file_id + ".jpg")
-    thumbnail_task.delay(file)
+    thumbnail_task.delay(file_id)
     return JsonResponse({
         "message":"Processing the Image."
     }, status=200)

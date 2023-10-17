@@ -26,6 +26,8 @@ def add_numbers(request):
     return JsonResponse({
         "message":"Successfully submitted"
     }, status=200)
+
+
 # homepage to show all the available endpoints 
 def homepage(request):
     env = os.environ.get("ENV", "None")

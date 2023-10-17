@@ -15,7 +15,7 @@ from django.urls import path
 from users import views
 from django.views.decorators.csrf import csrf_exempt
 import os
-from tasks import add
+from .tasks import add
 
 
 @api_view(http_method_names=["POST"])

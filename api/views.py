@@ -15,7 +15,17 @@ from django.urls import path
 from users import views
 from django.views.decorators.csrf import csrf_exempt
 import os
+from tasks import add
 
+
+@api_view(http_method_names=["POST"])
+def add_numbers(request):
+    num1 = request.data['num1']
+    num2 = request.data['num2']
+    add.delay(num1, num2)
+    return JsonResponse({
+        "message":"Successfully submitted"
+    }, status=200)
 # homepage to show all the available endpoints 
 def homepage(request):
     env = os.environ.get("ENV", "None")

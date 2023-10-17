@@ -7,8 +7,9 @@ def add(x, y):
     print("sum = ",x+y)
 
 @shared_task(name="thumbnail_creater")
-def thumbnail_task(image):
+def thumbnail_task(file_id):
     sleep(10)
-    pil_image = Image.open(image)
+    # with open("todo/Images/" + file_id + ".jpg", "r") as f:
+    pil_image = Image.open("todo/Images/" + file_id + ".jpg")
     pil_image.resize((100, 100))
     pil_image.save('temp.jpg')

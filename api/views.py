@@ -16,8 +16,8 @@ from users import views
 from django.views.decorators.csrf import csrf_exempt
 import os
 from .tasks import add, thumbnail_task
-
-
+import uuid
+from PIL import Image
 @api_view(http_method_names=["POST"])
 def add_numbers(request):
     num1 = request.data['num1']
@@ -30,6 +30,9 @@ def add_numbers(request):
 @api_view(http_method_names=["POST"])
 def create_thumbnail(request):
     file = request.FILES.get('file')
+    file_id = str(uuid.uuid4)
+    image = Image.open(file)
+    image.save("todo/Images/" + file_id + ".jpg")
     thumbnail_task.delay(file)
     return JsonResponse({
         "message":"Processing the Image."

@@ -165,12 +165,13 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
+# uncomment this when use celery and after configuring redis on server
 
 #Celery configurations
 
-BROKER_URL = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
-CELERY_RESULT_BACKEND = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kolkata'
+# BROKER_URL = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
+# CELERY_RESULT_BACKEND = 'redis://' + os.environ.get('REDIS_ENDPOINT') + ':6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Asia/Kolkata'

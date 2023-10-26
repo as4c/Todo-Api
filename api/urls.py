@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-app_name='todo'
 urlpatterns = [
     path('create-todo/', views.TaskCreateAPIView.as_view(), name='create-todo'),
     path('todos/', views.TaskAPIView.as_view(), name='todo-list'),

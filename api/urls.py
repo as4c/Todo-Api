@@ -9,6 +9,6 @@ urlpatterns = [
     path('create-tag/',views.TagCreateAPIView.as_view(),name="create-tag"),
     path("tags/",views.TagAPIView.as_view(),name='tags'),
     path('tags/<int:pk>/',views.TagDetailAPIView.as_view(),name='detail-tags'),
-    path('', views.add_numbers, name = 'add'),
+    path('', views.homepage, name = 'home'),
      path('thumbnail/', views.create_thumbnail, name = 'thumbnail'),
 ]
